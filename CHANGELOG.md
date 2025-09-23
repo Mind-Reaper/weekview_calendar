@@ -1,3 +1,15 @@
+## [1.0.1] - Fixes
+
+* bug fixes
+* 
+## [1.0.0] - Fixes
+
+* Customisable Month and Year format in Header.
+
+## [0.0.9] - Fixes
+
+* bug fixes
+
 ## [0.0.8] - Fixes
 
 * bug fixes
