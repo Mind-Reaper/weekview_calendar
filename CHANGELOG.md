@@ -1,7 +1,7 @@
 ## [1.0.1] - Fixes
 
 * bug fixes
-* 
+
 ## [1.0.0] - Fixes
 
 * Customisable Month and Year format in Header.
