@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../shared/utils.dart' show TextFormatter;
 
@@ -17,13 +18,16 @@ class HeaderStyle {
 
   /// Use to customize header's title text (e.g. with different `DateFormat`).
   /// You can use `String` transformations to further customize the text.
-  /// Defaults to simple `'yMMMM'` format (i.e. January 2019, February 2019, March 2019, etc.).
+  /// Defaults to simple `'y'` format (i.e. 2019) for year.
+  /// Defaults to simple `'MMMM'` format (i.e. January, February, etc) for month.
   ///
   /// Example usage:
   /// ```dart
-  /// titleTextFormatter: (date, locale) => DateFormat.yM(locale).format(date),
+  /// titleMonthFormatter: DateFormat('MMMM'),
+  //  titleYearFormatter: DateFormat('y'),
   /// ```
-  final TextFormatter? titleTextFormatter;
+  final DateFormat? titleMonthFormatter;
+  final DateFormat? titleYearFormatter;
 
   /// Style for title Text (month-year) displayed in header.
   final TextStyle titleTextStyle;
@@ -93,35 +97,36 @@ class HeaderStyle {
   /// Creates a `HeaderStyle` used by `WeekView Calendar` widget.
   const HeaderStyle(
       {this.titleCentered = false,
-      this.formatButtonVisible = true,
-      this.formatButtonShowsNext = true,
-      this.titleTextFormatter,
-      this.titleTextStyle = const TextStyle(fontSize: 17.0),
-      this.formatButtonTextStyle = const TextStyle(fontSize: 14.0),
-      this.formatButtonDecoration = const BoxDecoration(
-        border: const Border.fromBorderSide(BorderSide()),
-        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
-      ),
-      this.headerMargin = const EdgeInsets.all(0.0),
-      this.headerPadding = const EdgeInsets.symmetric(vertical: 8.0),
-      this.formatButtonPadding =
-          const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
-      this.formatIconButtonPadding = const EdgeInsets.all(12.0),
-      this.leftChevronPadding = const EdgeInsets.all(12.0),
-      this.rightChevronPadding = const EdgeInsets.all(12.0),
-      this.resetIconPadding = const EdgeInsets.all(12.0),
-      this.leftChevronMargin = const EdgeInsets.symmetric(horizontal: 8.0),
-      this.rightChevronMargin = const EdgeInsets.symmetric(horizontal: 8.0),
-      this.leftChevronIcon =
-          const Icon(Icons.chevron_left, color: Colors.black),
-      this.rightChevronIcon =
-          const Icon(Icons.chevron_right, color: Colors.black),
-      this.resetIcon = const Icon(Icons.restore, color: Colors.black),
-      this.resetIconMargin = const EdgeInsets.symmetric(horizontal: 8.0),
-      this.leftChevronVisible = true,
-      this.rightChevronVisible = true,
-      this.decoration = const BoxDecoration(),
-      this.selectMonthYearHighlightColor = const Color(0xFFBBDDFF),
-      this.monthYearChangeable = true,
-      this.showIcon = false});
+        this.formatButtonVisible = true,
+        this.formatButtonShowsNext = true,
+        this.titleMonthFormatter,
+        this.titleYearFormatter,
+        this.titleTextStyle = const TextStyle(fontSize: 17.0),
+        this.formatButtonTextStyle = const TextStyle(fontSize: 14.0),
+        this.formatButtonDecoration = const BoxDecoration(
+          border: const Border.fromBorderSide(BorderSide()),
+          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+        ),
+        this.headerMargin = const EdgeInsets.all(0.0),
+        this.headerPadding = const EdgeInsets.symmetric(vertical: 8.0),
+        this.formatButtonPadding =
+        const EdgeInsets.symmetric(horizontal: 10.0, vertical: 4.0),
+        this.formatIconButtonPadding = const EdgeInsets.all(12.0),
+        this.leftChevronPadding = const EdgeInsets.all(12.0),
+        this.rightChevronPadding = const EdgeInsets.all(12.0),
+        this.resetIconPadding = const EdgeInsets.all(12.0),
+        this.leftChevronMargin = const EdgeInsets.symmetric(horizontal: 8.0),
+        this.rightChevronMargin = const EdgeInsets.symmetric(horizontal: 8.0),
+        this.leftChevronIcon =
+        const Icon(Icons.chevron_left, color: Colors.black),
+        this.rightChevronIcon =
+        const Icon(Icons.chevron_right, color: Colors.black),
+        this.resetIcon = const Icon(Icons.restore, color: Colors.black),
+        this.resetIconMargin = const EdgeInsets.symmetric(horizontal: 8.0),
+        this.leftChevronVisible = true,
+        this.rightChevronVisible = true,
+        this.decoration = const BoxDecoration(),
+        this.selectMonthYearHighlightColor = const Color(0xFFBBDDFF),
+        this.monthYearChangeable = true,
+        this.showIcon = false});
 }

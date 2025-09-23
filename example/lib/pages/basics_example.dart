@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:weekview_calendar/weekview_calendar.dart';
 
 class WeekViewBasicsExample extends StatefulWidget {
@@ -79,6 +80,8 @@ class _WeekViewBasicsExampleState extends State<WeekViewBasicsExample> {
                 showIcon: true,
                 titleTextStyle:
                     TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                titleMonthFormatter: DateFormat('MMMM'),
+                titleYearFormatter: DateFormat('y'),
                 monthYearChangeable: false,
                 titleCentered: true),
             selectedDayPredicate: (day) {
